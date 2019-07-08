@@ -1,98 +1,107 @@
 import React from "react";
-import { thisTypeAnnotation } from "@babel/types";
-// import { thisTypeAnnotation } from "@babel/types";
 
 class FighterForm extends React.Component {
 
-    state = {
-        damagePoints: 20,
-        powerPoints: 20,
-        movePoints: {
-            moveOneDamage: 0,
-            moveOnePower: 0,
-            moveTwoDamage: 0,
-            moveTwoPower: 0,
-            moveThreeDamage: 0,
-            moveThreePower: 0,
-            moveFourDamage: 0,
-            moveFourPower: 0,
-        }
-    }
+    // state = {
+    //     fighterName: "",
+    //     fighterImage: "",
+    //     moveOneName: "",
+    //     moveOneImage: "",
+    //     moveTwoName: "",
+    //     moveTwoImage: "",
+    //     moveThreeName: "",
+    //     moveThreeImage: "",
+    //     moveFourName: "",
+    //     moveFourImage: "",
+    //     damagePoints: 20,
+    //     powerPoints: 20,
+    //     movePoints: {
+    //         moveOneDamage: 0,
+    //         moveOnePower: 0,
+    //         moveTwoDamage: 0,
+    //         moveTwoPower: 0,
+    //         moveThreeDamage: 0,
+    //         moveThreePower: 0,
+    //         moveFourDamage: 0,
+    //         moveFourPower: 0,
+    //     }
+    // }
 
-    handleDamageClick = (event) => {
-        event.preventDefault()
-        if (event.target.innerText === '+' && this.state.damagePoints > 0) {
+    // handleDamageClick = (event) => {
+    //     event.preventDefault()
+    //     if (event.target.innerText === '+' && this.props.state.damagePoints > 0) {
             
-            this.setState({
-                [event.target.id]: ++this.state.movePoints[event.target.id],
-                damagePoints: --this.state.damagePoints
-            })
-        } else if (event.target.innerText === '-' && this.state.damagePoints <= 20 && this.state.movePoints[event.target.id] > 0) {
-            this.setState({
-            [event.target.id]: --this.state.movePoints[event.target.id],
-                damagePoints: ++this.state.damagePoints
-            })
-        }
-    }
+    //         this.setState({
+    //             [event.target.id]: ++this.props.state.movePoints[event.target.id],
+    //             damagePoints: --this.props.state.damagePoints
+    //         })
+    //     } else if (event.target.innerText === '-' && this.props.state.damagePoints <= 20 && this.props.state.movePoints[event.target.id] > 0) {
+    //         this.setState({
+    //         [event.target.id]: --this.state.movePoints[event.target.id],
+    //             damagePoints: ++this.state.damagePoints
+    //         })
+    //     }
+    // }
 
-    handlePowerClick = (event) => {
-        event.preventDefault()
-        if (event.target.innerText === '+' && this.state.powerPoints > 0) {
+    // handlePowerClick = (event) => {
+    //     event.preventDefault()
+    //     if (event.target.innerText === '+' && this.props.state.powerPoints > 0) {
             
-            this.setState({
-                [event.target.id]: ++this.state.movePoints[event.target.id],
-                powerPoints: --this.state.powerPoints
-            })
-        } else if (event.target.innerText === '-' && this.state.powerPoints <= 20 && this.state.movePoints[event.target.id] > 0) {
-            this.setState({
-            [event.target.id]: --this.state.movePoints[event.target.id],
-                powerPoints: ++this.state.powerPoints
-            })
-        }
-    }
+    //         this.setState({
+    //             [event.target.id]: ++this.state.movePoints[event.target.id],
+    //             powerPoints: --this.state.powerPoints
+    //         })
+    //     } else if (event.target.innerText === '-' && this.state.powerPoints <= 20 && this.state.movePoints[event.target.id] > 0) {
+    //         this.setState({
+    //         [event.target.id]: --this.state.movePoints[event.target.id],
+    //             powerPoints: ++this.state.powerPoints
+    //         })
+    //     }
+    // }
 
-    handleChange = (event) => {
+    // handleChange = (event) => {
 
-        this.setState({
-          [event.target.name]: event.target.value
-        })
-    }
+    //     this.setState({
+    //       [event.target.name]: event.target.value
+    //     })
+    // }
  
     render() {
-        console.log(this.state.moveOneDamage)
+        console.log(this.props.state.moveOneDamage)
         return (
-            <form value={this.state} align="center" className="moveForm" onSubmit={(event) => this.props.handleSubmit(event)} >
+            <form value={this.props.state} align="center" className="moveForm" onSubmit={(event) => this.props.handleSubmit(event)} >
             <h1>Make a fighter!</h1>
 
                 <div id="fighter">
                     <label>Fighter Name: </label>
-                    <input handleChange={this.handleChange} value={this.state.fighter} name="fighter" placeholder="Fighter Name" type="text" ></input>
+                    <input onChange={this.props.handleChange} value={this.props.state.fighterName} name="fighterName" placeholder="Fighter Name" type="text" ></input>
                     <br></br>
                     <label>Fighter Image URL: </label>
-                    <input handleChange={this.handleChange} value={this.state.fighterImage} name="fighterImage" placeholder="Place your image URL here!" type="text"></input>
+                    <input onChange={this.props.handleChange} value={this.props.state.fighterImage} name="fighterImage" placeholder="Place your image URL here!" type="text"></input>
                 </div>
                 <br></br>
-                <p>Damage Points Remaining: {this.state.damagePoints}</p>
-                <p>Power Points Remaning: {this.state.powerPoints}</p>
+                <p>Damage Points Remaining: {this.props.state.damagePoints}</p>
+                <p>Power Points Remaning: {this.props.state.powerPoints}</p>
 
                 <div id="Move1">
                     <label>Move One</label>
                     <br></br>
-                    <input handleChange={this.handleChange} value={this.state.moveOneName} name="moveOneName" placeholder="Move 1 Name" type="text" name="move1Name" />
-                    <input handleChange={this.handleChange} value={this.state.moveOneImage} name="moveOneImage" placeholder="Move 1 Name" placeholder="Move 1 Image"type="text" name="move1Img" />
+                    <input onChange={(event) => this.props.handleChange(event)} value={this.props.state.moveOneName} name="moveOneName" placeholder="Move One Name" type="text" />
+
+                    <input onChange={this.props.handleChange} value={this.props.state.moveOneImage} name="moveOneImage" placeholder="Move One image" type="text" />
                     <br></br>
 
                     <label>Damage Points</label>
 
-                    <button id="moveOneDamage" onClick={this.handleDamageClick}>+</button>
-                    <span id='moveOneDamageSpan' value={this.state.movePoints.moveOneDamage}>{this.state.movePoints.moveOneDamage}</span>
-                    <button id="moveOneDamage" onClick={this.handleDamageClick}>-</button>
+                    <button id="moveOneDamage" onClick={this.props.handleDamageClick}>+</button>
+                    <span id='moveOneDamageSpan' value={this.props.state.movePoints.moveOneDamage}>{this.props.state.movePoints.moveOneDamage}</span>
+                    <button id="moveOneDamage" onClick={this.props.handleDamageClick}>-</button>
 
                     <br></br>
                     <label>Power Points</label>
-                    <button id="moveOnePower" onClick={this.handlePowerClick}>+</button>
-                    <span id='moveOnePowerSpan' value={this.state.movePoints.moveOnePower}>{this.state.movePoints.moveOnePower}</span>
-                    <button handleChange={this.handleChange} value={this.state.movePoints.moveOneDamage} name="moveOnePower" id="moveOnePower" onClick={this.handlePowerClick}>-</button>
+                    <button id="moveOnePower" onClick={this.props.handlePowerClick}>+</button>
+                    <span id='moveOnePowerSpan' value={this.props.state.movePoints.moveOnePower}>{this.props.state.movePoints.moveOnePower}</span>
+                    <button handleChange={this.props.handleChange} value={this.props.state.movePoints.moveOneDamage} name="moveOnePower" id="moveOnePower" onClick={this.props.handlePowerClick}>-</button>
                 </div>
 
                 <br></br>
@@ -100,18 +109,18 @@ class FighterForm extends React.Component {
                 <div>
                     <label>Move Two</label>
                     <br></br>
-                    <input placeholder="Move 2 Name"type="text" name="move2Name" />
-                    <input placeholder="Move w Image"type="text" name="move2Img" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveTwoName} placeholder="Move Two Name"type="text" name="moveTwoName" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveTwoImage} placeholder="Move Two Image"type="text" name="moveTwoImage" />
                     <br></br>
                     <label>Damage Points </label>
-                    <button id="moveTwoDamage" onClick={this.handleDamageClick}>+</button>
-                    <span id="moveTwoDamageSpan" value={this.state.movePoints.moveTwoDamage}>{this.state.movePoints.moveTwoDamage}</span>
-                    <button id="moveTwoDamage" onClick={this.handleDamageClick}>-</button>
+                    <button id="moveTwoDamage" onClick={this.props.handleDamageClick}>+</button>
+                    <span id="moveTwoDamageSpan" value={this.props.state.movePoints.moveTwoDamage}>{this.props.state.movePoints.moveTwoDamage}</span>
+                    <button id="moveTwoDamage" onClick={this.props.handleDamageClick}>-</button>
                     <br></br>
                     <label>Power Points</label>
-                    <button id="moveTwoPower" onClick={this.handlePowerClick}>+</button>
-                    <span id="moveTwoPowerSpan" value={this.state.movePoints.moveTwoPower}>{this.state.movePoints.moveTwoPower}</span>
-                    <button id="moveTwoPower" onClick={this.handlePowerClick}>-</button>
+                    <button id="moveTwoPower" onClick={this.props.handlePowerClick}>+</button>
+                    <span id="moveTwoPowerSpan" value={this.props.state.movePoints.moveTwoPower}>{this.props.state.movePoints.moveTwoPower}</span>
+                    <button id="moveTwoPower" onClick={this.props.handlePowerClick}>-</button>
                 </div>
 
                 <br></br>
@@ -119,19 +128,19 @@ class FighterForm extends React.Component {
                 <div>
                     <label>Move Three</label>
                     <br></br>
-                    <input placeholder="Move 3 Name"type="text" name="move1Name" />
-                    <input placeholder="Move 3 Image"type="text" name="move1Img" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveThreeName} placeholder="Move Three Name"type="text" name="moveThreeName" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveThreeImage} placeholder="Move Three Image"type="text" name="moveThreeImage" />
                     <br></br>
                     <label>Damage Points </label>
-                    <button id="moveThreeDamage" onClick={this.handleDamageClick}>+</button>
-                    <span id="moveThreeDamageSpan" value={this.state.movePoints.moveThreeDamage}>{this.state.movePoints.moveThreeDamage}</span>
-                    <button id="moveThreeDamage" onClick={this.handleDamageClick}>-</button>
+                    <button id="moveThreeDamage" onClick={this.props.handleDamageClick}>+</button>
+                    <span id="moveThreeDamageSpan" value={this.props.state.movePoints.moveThreeDamage}>{this.props.state.movePoints.moveThreeDamage}</span>
+                    <button id="moveThreeDamage" onClick={this.props.handleDamageClick}>-</button>
                     
                     <br></br>
                     <label>Power Points </label>
-                    <button id="moveThreePower" onClick={this.handlePowerClick}>+</button>
-                    <span id="moveThreePowerSpan" value={this.state.movePoints.moveThreePower}>{this.state.movePoints.moveThreePower}</span>
-                    <button id="moveThreePower" onClick={this.handlePowerClick}>-</button>
+                    <button id="moveThreePower" onClick={this.props.handlePowerClick}>+</button>
+                    <span id="moveThreePowerSpan" value={this.props.state.movePoints.moveThreePower}>{this.props.state.movePoints.moveThreePower}</span>
+                    <button id="moveThreePower" onClick={this.props.handlePowerClick}>-</button>
                 </div>
 
                 <br></br>
@@ -139,18 +148,18 @@ class FighterForm extends React.Component {
                 <div>
                     <label>Move Four</label>
                     <br></br>
-                    <input placeholder="Move 4 Name"type="text" name="move1Name" />
-                    <input placeholder="Move 4 Image"type="text" name="move1Img" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveFourName} placeholder="Move Four Name"type="text" name="moveFourName" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveFourImage} placeholder="Move Four Image"type="text" name="moveFourImage" />
                     <br></br>
                     <label>Damage Points</label>
-                    <button id="moveFourDamage" onClick={this.handleDamageClick}>+</button>
-                    <span id="moveFourDamageSpan" value={this.state.movePoints.moveFourDamage}>{this.state.movePoints.moveFourDamage}</span>
-                    <button id="moveFourDamage" onClick={this.handleDamageClick}>-</button>
+                    <button id="moveFourDamage" onClick={this.props.handleDamageClick}>+</button>
+                    <span id="moveFourDamageSpan" value={this.props.state.movePoints.moveFourDamage}>{this.props.state.movePoints.moveFourDamage}</span>
+                    <button id="moveFourDamage" onClick={this.props.handleDamageClick}>-</button>
                     <br></br>
                     <label>Power Points </label>
-                    <button id="moveFourPower" onClick={this.handlePowerClick}>+</button>
-                    <span id="moveFourPowerSpan" value={this.state.movePoints.moveFourPower}>{this.state.movePoints.moveFourPower}</span>
-                    <button id="moveFourPower" onClick={this.handlePowerClick}>-</button>
+                    <button id="moveFourPower" onClick={this.props.handlePowerClick}>+</button>
+                    <span id="moveFourPowerSpan" value={this.props.state.movePoints.moveFourPower}>{this.props.state.movePoints.moveFourPower}</span>
+                    <button id="moveFourPower" onClick={this.props.handlePowerClick}>-</button>
                 </div>
                 <input type="submit" value=
                 "Submit"/>
