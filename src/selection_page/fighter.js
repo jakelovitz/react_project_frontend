@@ -38,12 +38,12 @@ class Fighter extends React.Component {
                 </Typography>
               </CardContent>
                 
-              <Button id={this.props.key} size="small" color="primary" align="center" onClick={(event) => this.props.selectFighter(event)}>
+              <button id={this.props.fighter.id} size="small" color="primary" align="center" onClick={(event) => this.props.selectFighter(event)}>
                 Player 1 - Select
-              </Button>
-              <Button id={this.props.key} size="small" color="primary" align="center" onClick={(event) => this.props.selectFighter(event)}>
+              </button>
+              <button id={this.props.fighter.id} size="small" color="primary" align="center" onClick={(event) => this.props.selectFighter(event)}>
                 Player 2 - Select
-              </Button>
+              </button>
             
             </CardActionArea>
           </Card>

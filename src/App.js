@@ -25,11 +25,20 @@ class App extends React.Component {
 
   selectFighter = (event) => {
     console.log('the id here is', event.target.id)
-    // debugger
+
+    let fighter = this.locateFighter(event.target.id)
+
+    console.log(fighter)
   }
 
-  locateFighter = () => {
+  locateFighter = (id) => {
 
+    let selectedFighter = this.state.fighters.filter((fighter) => {
+      
+      return fighter.id === parseInt(id)
+
+    })
+    return selectedFighter[0]
   }
 
   render() {
