@@ -1,5 +1,6 @@
 import React from "react";
 import FighterForm from "./fighter_form";
+import FighterContainer from "./fighter_container"
 
 class SelectionContainer extends React.Component {
 
@@ -114,7 +115,10 @@ handleChange = (event) => {
 
     render() {
         return (
-            < FighterForm handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
+            <div>
+                < FighterForm handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
+                < FighterContainer />
+            </div>
         )
     }
 
