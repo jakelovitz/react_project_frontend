@@ -9,7 +9,7 @@ class SelectionContainer extends React.Component {
         powerPoints: 20,
         fighterName: "",
         fighterImage: "",
-        health: "",
+        health: 100,
         moveOne: {
             name: "",
             image: "",
@@ -19,20 +19,20 @@ class SelectionContainer extends React.Component {
         moveTwo: {
             name: "",
             image: "",
-            damage: "",
-            power: "",
+            damage: 0,
+            power: 0,
         },
         moveThree: {
             name: "",
             image: "",
-            damage: "",
-            power: "",
+            damage: 0,
+            power: 0,
         },
         moveFour: {
             name: "",
             image: "",
-            damage: "",
-            power: "",
+            damage: 0,
+            power: 0,
         }
     }
 
@@ -42,15 +42,15 @@ handleDamageClick = (inc, moveKey, attribute) => {
         
         this.setState({
             [moveKey]: {
-                ...[moveKey],
+                ...this.state[moveKey],
                 [attribute]: this.state[moveKey][attribute] + 1
             },
             damagePoints: this.state.damagePoints - 1
         })
-    } else if (inc === '-' && this.state.damagePoints <= 20 &&          this.state[moveKey][attribute] > 0) {
+    } else if (inc === '-' && this.state.damagePoints <= 20 && this.state[moveKey][attribute] > 0) {
         this.setState({
             [moveKey]: {
-                ...[moveKey],
+                ...this.state[moveKey],
                 [attribute]: this.state[moveKey][attribute] - 1
             },
             damagePoints: this.state.damagePoints + 1
@@ -58,22 +58,36 @@ handleDamageClick = (inc, moveKey, attribute) => {
     }
 }
 
-handlePowerClick = (event) => {
-    console.log(this.state.moveOne.damage)
-    event.preventDefault()
-    if (event.target.innerText === '+' && this.state.powerPoints > 0) {
+handlePowerClick = (inc, moveKey, attribute) => {
+    console.log(inc, moveKey, attribute)
+    if (inc === '+' && this.state.damagePoints > 0) {
 
         this.setState({
-            [event.target.id]: ++this.state[event.target.id],
-            powerPoints: --this.state.powerPoints
+            [moveKey]: {
+                ...this.state[moveKey],
+                [attribute]: this.state[moveKey][attribute] + 1
+            },
+            powerPoints: this.state.powerPoints - 1
         })
 
-    } else if (event.target.innerText === '-' && this.state.powerPoints <= 20 && this.state[event.target.id] > 0) {
+    } else if (inc === '-' && this.state.powerPoints <= 20 && this.state[moveKey][attribute] > 0) {
         this.setState({
-        [event.target.id]: --this.state[event.target.id],
-            powerPoints: ++this.state.powerPoints
+            [moveKey]: {
+                ...this.state[moveKey],
+                [attribute]: this.state[moveKey][attribute] - 1
+            },
+            powerPoints: this.state.powerPoints + 1
         })
     }
+}
+
+handleMoveChange = (moveKey, attribute, value) => {
+    this.setState({
+        [moveKey]: {
+            ...this.state[moveKey],
+            [attribute]: value
+        }
+    })
 }
 
 handleChange = (event) => {
@@ -87,9 +101,9 @@ handleChange = (event) => {
 
     handleSubmit = (event) => {
         event.preventDefault()
+        
         console.log('hey tim')
-
-        // this.postFetch(event)
+        this.postFetch(event)
     }
 
     postFetch = (event) => {
@@ -99,28 +113,7 @@ handleChange = (event) => {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
-            body: JSON.stringify({
-                "name": this.state.fighterName,
-                "img_url": this.state.fighterImage,
-                "moves": {
-                        "name1": this.state.moveOneName,
-                        "img_url1": this.state.moveOneImage,
-                        "dp1": this.state.movePoints.moveOneDamage,
-                        "pp1": this.state.movePoints.moveOnePower,
-                        "name2": this.state.moveTwoName,
-                        "img_url2": this.state.moveTwoImage,
-                        "dp2": this.state.movePoints.moveTwoDamage,
-                        "pp2": this.state.movePoints.moveTwoPower,
-                        "name3": this.state.moveThreeName,
-                        "img_url3": this.state.moveThreeImage,
-                        "dp3": this.state.movePoints.moveThreeDamage,
-                        "pp3": this.state.movePoints.moveThreePower,
-                        "name4": this.state.moveFourName,
-                        "img_url4": this.state.moveFourImage,
-                        "dp4": this.state.movePoints.moveFourDamage,
-                        "pp4": this.state.movePoints.moveFourPower 
-                    }
-            })
+            body: JSON.stringify(this.state)
         })
         .then(results => results.json())
         .then(data => {
@@ -129,9 +122,10 @@ handleChange = (event) => {
     }
 
     render() {
+        console.log(this.state)
         return (
             <div>
-                < FighterForm handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
+                < FighterForm handleMoveChange={this.handleMoveChange} handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
                 < FighterContainer fighters={this.props.fighters} selectFighter={this.props.selectFighter}/>
             </div>
         )

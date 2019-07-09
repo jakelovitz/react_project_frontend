@@ -28,13 +28,13 @@ class Fighter extends React.Component {
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                     
-                  {this.props.fighter.moves[0].name1}
+                  {this.props.fighter}
                   <br></br>
-                  {this.props.fighter.moves[0].name2}
+                  {this.props.fighter}
                   <br></br>
-                  {this.props.fighter.moves[0].name3}
+                  {this.props.fighter}
                   <br></br>
-                  {this.props.fighter.moves[0].name4}
+                  {this.props.fighter}
                 </Typography>
               </CardContent>
                 

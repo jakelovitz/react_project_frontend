@@ -20,14 +20,15 @@ class FighterForm extends React.Component {
     render() {
         
         return (
-            <div>
+            
+             <div>
                 <h1 align="center">Or Add One!</h1>
 
 
                 {this.props.fighters.map ((fighter) => {
 				  return <Fighter fighter={fighter} key={fighter.id} selectFighter={this.props.selectFighter} selectFighter={this.props.selectFighter}/>
               })}
-            </div>
+            </div> 
         )
     }
 
