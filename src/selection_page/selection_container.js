@@ -1,5 +1,6 @@
 import React from "react";
 import FighterForm from "./fighter_form";
+import FighterContainer from "./fighter_container"
 
 class SelectionContainer extends React.Component {
 
@@ -27,6 +28,7 @@ class SelectionContainer extends React.Component {
             moveFourPower: 0,
         }
 }
+
 handleDamageClick = (event) => {
     event.preventDefault()
     if (event.target.innerText === '+' && this.state.damagePoints > 0) {
@@ -114,7 +116,10 @@ handleChange = (event) => {
 
     render() {
         return (
-            < FighterForm handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
+            <div>
+                < FighterForm handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
+                < FighterContainer fighters={this.props.fighters} selectFighter={this.props.selectFighter}/>
+            </div>
         )
     }
 
