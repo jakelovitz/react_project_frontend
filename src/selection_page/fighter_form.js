@@ -22,22 +22,24 @@ class FighterForm extends React.Component {
                 <div id="Move1">
                     <label>Move One</label>
                     <br></br>
-                    <input onChange={(event) => this.props.handleChange(event)} value={this.props.state.moveOneName} name="moveOneName" placeholder="Move One Name" type="text" />
+                    <input onChange={(event) => this.props.handleChange(event)} value={this.props.state.moveOne.name} name="moveOneName" placeholder="Move One Name" type="text" />
 
-                    <input onChange={this.props.handleChange} value={this.props.state.moveOneImage} name="moveOneImage" placeholder="Move One image" type="text" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveOne.image} name="moveOneImage" placeholder="Move One image" type="text" />
                     <br></br>
 
                     <label>Damage Points</label>
 
-                    <button id="moveOneDamage" onClick={this.props.handleDamageClick}>+</button>
-                    <span id='moveOneDamageSpan' value={this.props.state.movePoints.moveOneDamage}>{this.props.state.movePoints.moveOneDamage}</span>
-                    <button id="moveOneDamage" onClick={this.props.handleDamageClick}>-</button>
+                    <button id={this.props.state.moveOne} onClick={() => this.props.handleDamageClick("+", "moveOne", "damage")}>+</button>
+
+                    <span id='moveOneDamageSpan' value={this.props.state.moveOne.damage}>{this.props.state.moveOne.damage}</span>
+
+                    <button id={this.props.state.moveOne.damage} onClick={() => this.props.handleDamageClick("-", "moveOne", "damage")}>-</button>
 
                     <br></br>
                     <label>Power Points</label>
-                    <button id="moveOnePower" onClick={this.props.handlePowerClick}>+</button>
-                    <span id='moveOnePowerSpan' value={this.props.state.movePoints.moveOnePower}>{this.props.state.movePoints.moveOnePower}</span>
-                    <button handleChange={this.props.handleChange} value={this.props.state.movePoints.moveOneDamage} name="moveOnePower" id="moveOnePower" onClick={this.props.handlePowerClick}>-</button>
+                    <button id={this.props.state.moveOne.power} onClick={this.props.handlePowerClick}>+</button>
+                    <span id='moveOnePowerSpan' value={this.props.state.moveOne.power}>{this.props.state.moveThree.power}</span>
+                    <button handleChange={this.props.handleChange} value={this.props.state.moveOne.power} name="moveOnePower" id={this.props.state.moveOne.power} onClick={this.props.handlePowerClick}>-</button>
                 </div>
 
                 <br></br>
@@ -45,18 +47,18 @@ class FighterForm extends React.Component {
                 <div>
                     <label>Move Two</label>
                     <br></br>
-                    <input onChange={this.props.handleChange} value={this.props.state.moveTwoName} placeholder="Move Two Name"type="text" name="moveTwoName" />
-                    <input onChange={this.props.handleChange} value={this.props.state.moveTwoImage} placeholder="Move Two Image"type="text" name="moveTwoImage" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveTwo.name} placeholder="Move Two Name"type="text" name="moveTwoName" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveTwo.image} placeholder="Move Two Image"type="text" name="moveTwoImage" />
                     <br></br>
                     <label>Damage Points </label>
-                    <button id="moveTwoDamage" onClick={this.props.handleDamageClick}>+</button>
-                    <span id="moveTwoDamageSpan" value={this.props.state.movePoints.moveTwoDamage}>{this.props.state.movePoints.moveTwoDamage}</span>
-                    <button id="moveTwoDamage" onClick={this.props.handleDamageClick}>-</button>
+                    <button id={this.props.state.moveTwo.damage} onClick={this.props.handleDamageClick}>+</button>
+                    <span id="moveTwoDamageSpan" value={this.props.state.moveTwo.damage}>{this.props.state.moveTwo.damage}</span>
+                    <button id={this.props.state.moveTwo.damage} onClick={this.props.handleDamageClick}>-</button>
                     <br></br>
                     <label>Power Points</label>
-                    <button id="moveTwoPower" onClick={this.props.handlePowerClick}>+</button>
-                    <span id="moveTwoPowerSpan" value={this.props.state.movePoints.moveTwoPower}>{this.props.state.movePoints.moveTwoPower}</span>
-                    <button id="moveTwoPower" onClick={this.props.handlePowerClick}>-</button>
+                    <button id={this.props.state.moveTwo.power} onClick={this.props.handlePowerClick}>+</button>
+                    <span id="moveTwoPowerSpan" value={this.props.state.moveTwo.power}>{this.props.state.moveTwo.power}</span>
+                    <button id={this.props.state.moveTwo.power} onClick={this.props.handlePowerClick}>-</button>
                 </div>
 
                 <br></br>
@@ -64,19 +66,19 @@ class FighterForm extends React.Component {
                 <div>
                     <label>Move Three</label>
                     <br></br>
-                    <input onChange={this.props.handleChange} value={this.props.state.moveThreeName} placeholder="Move Three Name"type="text" name="moveThreeName" />
-                    <input onChange={this.props.handleChange} value={this.props.state.moveThreeImage} placeholder="Move Three Image"type="text" name="moveThreeImage" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveThree.name} placeholder="Move Three Name"type="text" name="moveThreeName" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveThree.image} placeholder="Move Three Image"type="text" name="moveThreeImage" />
                     <br></br>
                     <label>Damage Points </label>
-                    <button id="moveThreeDamage" onClick={this.props.handleDamageClick}>+</button>
-                    <span id="moveThreeDamageSpan" value={this.props.state.movePoints.moveThreeDamage}>{this.props.state.movePoints.moveThreeDamage}</span>
-                    <button id="moveThreeDamage" onClick={this.props.handleDamageClick}>-</button>
+                    <button id={this.props.state.moveThree.damage} onClick={this.props.handleDamageClick}>+</button>
+                    <span id="moveThreeDamageSpan" value={this.props.state.moveThree.damage}>{this.props.state.moveThree.damage}</span>
+                    <button id={this.props.state.moveThree.damage} onClick={this.props.handleDamageClick}>-</button>
                     
                     <br></br>
                     <label>Power Points </label>
-                    <button id="moveThreePower" onClick={this.props.handlePowerClick}>+</button>
-                    <span id="moveThreePowerSpan" value={this.props.state.movePoints.moveThreePower}>{this.props.state.movePoints.moveThreePower}</span>
-                    <button id="moveThreePower" onClick={this.props.handlePowerClick}>-</button>
+                    <button id={this.props.state.moveThree.power} onClick={this.props.handlePowerClick}>+</button>
+                    <span id="moveThreePowerSpan" value={this.props.state.moveThree.power}>{this.props.state.moveThree.power}</span>
+                    <button id={this.props.state.moveThree.power} onClick={this.props.handlePowerClick}>-</button>
                 </div>
 
                 <br></br>
@@ -84,18 +86,20 @@ class FighterForm extends React.Component {
                 <div>
                     <label>Move Four</label>
                     <br></br>
-                    <input onChange={this.props.handleChange} value={this.props.state.moveFourName} placeholder="Move Four Name"type="text" name="moveFourName" />
-                    <input onChange={this.props.handleChange} value={this.props.state.moveFourImage} placeholder="Move Four Image"type="text" name="moveFourImage" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveFour.name} placeholder="Move Four Name"type="text" name="moveFourName" />
+                    <input onChange={this.props.handleChange} value={this.props.state.moveFour.image} placeholder="Move Four Image"type="text" name="moveFourImage" />
                     <br></br>
                     <label>Damage Points</label>
-                    <button id="moveFourDamage" onClick={this.props.handleDamageClick}>+</button>
-                    <span id="moveFourDamageSpan" value={this.props.state.movePoints.moveFourDamage}>{this.props.state.movePoints.moveFourDamage}</span>
-                    <button id="moveFourDamage" onClick={this.props.handleDamageClick}>-</button>
+                    <button id={this.props.state.moveFour.damage} onClick={this.props.handleDamageClick}>+</button>
+
+                    <span id="moveFourDamageSpan" value={this.props.state.moveFour.damage}>{this.props.state.moveFour.damage}</span>
+
+                    <button id={this.props.state.moveFour.damage} onClick={this.props.handleDamageClick}>-</button>
                     <br></br>
                     <label>Power Points </label>
-                    <button id="moveFourPower" onClick={this.props.handlePowerClick}>+</button>
-                    <span id="moveFourPowerSpan" value={this.props.state.movePoints.moveFourPower}>{this.props.state.movePoints.moveFourPower}</span>
-                    <button id="moveFourPower" onClick={this.props.handlePowerClick}>-</button>
+                    <button id={this.props.state.moveFour.power} onClick={this.props.handlePowerClick}>+</button>
+                    <span id="moveFourPowerSpan" value={this.props.state.moveFour.power}>{this.props.state.moveFour.power}</span>
+                    <button id={this.props.state.moveFour.power} onClick={this.props.handlePowerClick}>-</button>
                 </div>
                 <input type="submit" value=
                 "Submit"/>
