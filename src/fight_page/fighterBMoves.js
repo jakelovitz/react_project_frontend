@@ -4,15 +4,15 @@ class FighterBMoves extends React.Component {
     render() {
         return (
             <div>
-            <button>Move 1</button>
-            <br></br>
-            <button>Move 2</button>
-            <br></br>
-            <button>Move 3</button>
-            <br></br>
-            <button>Move 4</button>
-            <br></br>
-           </div>
+                <button>{this.props.moves[0].name1}</button>
+                <br></br>
+                <button>{this.props.moves[0].name2}</button>
+                <br></br>
+                <button>{this.props.moves[0].name3}</button>
+                <br></br>
+                <button>{this.props.moves[0].name4}</button>
+                <br></br>
+            </div>
         )
     }
 }

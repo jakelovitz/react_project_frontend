@@ -4,13 +4,22 @@ import './App.css';
 import FighterContainer from './fight_page/fight_container'
 import SelectionContainer from './selection_page/selection_container'
 import { thisExpression } from '@babel/types';
+import Fighter from './selection_page/fighter';
 
 class App extends React.Component {
 
   state = {
     fighters: [],
-    selectedFighterA: {},
-    selectedFighterB: {}
+    selectedFighterA: null,
+    selectedFighterB: null
+  }
+
+ fightersSelected = () => {
+    if(this.state.selectedFighterA && this.state.selectedFighterB){
+      return <FighterContainer fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} />
+    } else {
+      return < SelectionContainer fighters={this.state.fighters} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} selectFighter={this.selectFighter} />
+    }
   }
 
 
@@ -24,11 +33,19 @@ class App extends React.Component {
   }
 
   selectFighter = (event) => {
-    console.log('the id here is', event.target.id)
-
+    
     let fighter = this.locateFighter(event.target.id)
+    if (event.target.innerText === 'Player 1 - Select'){
+      this.setState({
+        selectedFighterA: fighter 
+      })
+    } else if (event.target.innerText === 'Player 2 - Select'){
+      this.setState({
+        selectedFighterB: fighter
+      })
+    }
 
-    console.log(fighter)
+    
   }
 
   locateFighter = (id) => {
@@ -42,6 +59,9 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state.selectedFighterA)
+    console.log(this.state.selectedFighterB)
+
     return (
       <fragment>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
@@ -49,8 +69,9 @@ class App extends React.Component {
 
 
       <div>
-      < SelectionContainer fighters={this.state.fighters} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} selectFighter={this.selectFighter}/>
-      {/* <  FightContainer /> */}
+      
+      {this.fightersSelected()}
+
     </div>
       </fragment>
     );

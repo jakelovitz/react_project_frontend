@@ -7,29 +7,24 @@ import '../styling.css'
 
 class FightContainer extends React.Component {
 
- state = { //temporary for setting up the page
-    bots: [],
-    botA: "",
-    botB: ""
+ state = {
+     Ahp: 100,
+     Bhp: 100
+    
  }
 
  componentDidMount() { //temporary for setting up the page
-    fetch('https://bot-battler-api.herokuapp.com/api/v1/bots')
-    .then(response => response.json())
-    .then(data => this.setState({ 
-        bots: data,
-        botA: data[0],
-        botB: data[1]
-    }));
+    
+    
  }
 
  render() {
-     console.log(this.state)
+     
      return (
          <div class="wrapper">
-         <FighterA bot={this.state.botA} class='one'/>
+         <FighterA Ahp={this.state.Ahp} fighterA={this.props.fighterA} class='one'/>
          <Battleground class='two'/>
-         <FighterB bot={this.state.botB} class='three'/>
+         <FighterB Bhp={this.state.Bhp} fighterB={this.props.fighterB} class='three'/>
          </div>
      )
  }

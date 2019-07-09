@@ -3,7 +3,7 @@ import React from "react";
 class FighterForm extends React.Component {
  
     render() {
-        console.log(this.props.state.moveOneDamage)
+        
         return (
             <form value={this.props.state} align="center" className="moveForm" onSubmit={(event) => this.props.handleSubmit(event)} >
             <h1>Make a fighter!</h1>
