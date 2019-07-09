@@ -5,57 +5,72 @@ import FighterContainer from "./fighter_container"
 class SelectionContainer extends React.Component {
 
     state = {
-        fighterName: "",
-        fighterImage: "",
-        moveOneName: "",
-        moveOneImage: "",
-        moveTwoName: "",
-        moveTwoImage: "",
-        moveThreeName: "",
-        moveThreeImage: "",
-        moveFourName: "",
-        moveFourImage: "",
         damagePoints: 20,
         powerPoints: 20,
-        movePoints: {
-            moveOneDamage: 0,
-            moveOnePower: 0,
-            moveTwoDamage: 0,
-            moveTwoPower: 0,
-            moveThreeDamage: 0,
-            moveThreePower: 0,
-            moveFourDamage: 0,
-            moveFourPower: 0,
+        fighterName: "",
+        fighterImage: "",
+        health: "",
+        moveOne: {
+            name: "",
+            image: "",
+            damage: 0,
+            power: 0,
+        },
+        moveTwo: {
+            name: "",
+            image: "",
+            damage: "",
+            power: "",
+        },
+        moveThree: {
+            name: "",
+            image: "",
+            damage: "",
+            power: "",
+        },
+        moveFour: {
+            name: "",
+            image: "",
+            damage: "",
+            power: "",
         }
-}
+    }
 
-handleDamageClick = (event) => {
-    event.preventDefault()
-    if (event.target.innerText === '+' && this.state.damagePoints > 0) {
+handleDamageClick = (inc, moveKey, attribute) => {
+
+    if (inc === '+' && this.state.damagePoints > 0) {
         
         this.setState({
-            [event.target.id]: ++this.state.movePoints[event.target.id],
-            damagePoints: --this.state.damagePoints
+            [moveKey]: {
+                ...[moveKey],
+                [attribute]: this.state[moveKey][attribute] + 1
+            },
+            damagePoints: this.state.damagePoints - 1
         })
-    } else if (event.target.innerText === '-' && this.state.damagePoints <= 20 && this.state.movePoints[event.target.id] > 0) {
+    } else if (inc === '-' && this.state.damagePoints <= 20 &&          this.state[moveKey][attribute] > 0) {
         this.setState({
-        [event.target.id]: --this.state.movePoints[event.target.id],
-            damagePoints: ++this.state.damagePoints
+            [moveKey]: {
+                ...[moveKey],
+                [attribute]: this.state[moveKey][attribute] - 1
+            },
+            damagePoints: this.state.damagePoints + 1
         })
     }
 }
 
 handlePowerClick = (event) => {
+    console.log(this.state.moveOne.damage)
     event.preventDefault()
     if (event.target.innerText === '+' && this.state.powerPoints > 0) {
-        
+
         this.setState({
-            [event.target.id]: ++this.state.movePoints[event.target.id],
+            [event.target.id]: ++this.state[event.target.id],
             powerPoints: --this.state.powerPoints
         })
-    } else if (event.target.innerText === '-' && this.state.powerPoints <= 20 && this.state.movePoints[event.target.id] > 0) {
+
+    } else if (event.target.innerText === '-' && this.state.powerPoints <= 20 && this.state[event.target.id] > 0) {
         this.setState({
-        [event.target.id]: --this.state.movePoints[event.target.id],
+        [event.target.id]: --this.state[event.target.id],
             powerPoints: ++this.state.powerPoints
         })
     }
@@ -74,7 +89,7 @@ handleChange = (event) => {
         event.preventDefault()
         console.log('hey tim')
 
-        this.postFetch(event)
+        // this.postFetch(event)
     }
 
     postFetch = (event) => {
@@ -87,8 +102,7 @@ handleChange = (event) => {
             body: JSON.stringify({
                 "name": this.state.fighterName,
                 "img_url": this.state.fighterImage,
-                "moves": 
-                    {
+                "moves": {
                         "name1": this.state.moveOneName,
                         "img_url1": this.state.moveOneImage,
                         "dp1": this.state.movePoints.moveOneDamage,

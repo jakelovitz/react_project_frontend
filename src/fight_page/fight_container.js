@@ -24,7 +24,7 @@ class FightContainer extends React.Component {
  }
 
  handleClick= () => {
-    
+       
 
  }
 
