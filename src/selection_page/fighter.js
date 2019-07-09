@@ -15,31 +15,37 @@ class Fighter extends React.Component {
     render() {
         return (
 
-            <Card >
+            <Card align="center">
             <CardActionArea>
-              <CardMedia
-                
-                image="/static/images/cards/contemplative-reptile.jpg"
-                title="Contemplative Reptile"
-              />
+            <img src={this.props.fighter.img_url} alt={this.props.fighter.name} width={400} height={500} mode='fit'/>
+              
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  Lizard
+                  {this.props.fighter.name}
+                </Typography>
+                <Typography variant="body1" color="textSecondary" component="p">
+                    Moves: <br></br>
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                  across all continents except Antarctica
+                    
+                  {this.props.fighter.moves[0].name1}
+                  <br></br>
+                  {this.props.fighter.moves[0].name2}
+                  <br></br>
+                  {this.props.fighter.moves[0].name3}
+                  <br></br>
+                  {this.props.fighter.moves[0].name4}
                 </Typography>
               </CardContent>
+                
+              <Button id={this.props.key} size="small" color="primary" align="center" onClick={(event) => this.props.selectFighter(event)}>
+                Player 1 - Select
+              </Button>
+              <Button id={this.props.key} size="small" color="primary" align="center" onClick={(event) => this.props.selectFighter(event)}>
+                Player 2 - Select
+              </Button>
+            
             </CardActionArea>
-            <CardActions>
-              <Button size="small" color="primary">
-                Share
-              </Button>
-              <Button size="small" color="primary">
-                Learn More
-              </Button>
-            </CardActions>
           </Card>
         )
     }

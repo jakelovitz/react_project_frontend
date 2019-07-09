@@ -28,6 +28,7 @@ class SelectionContainer extends React.Component {
             moveFourPower: 0,
         }
 }
+
 handleDamageClick = (event) => {
     event.preventDefault()
     if (event.target.innerText === '+' && this.state.damagePoints > 0) {
@@ -117,7 +118,7 @@ handleChange = (event) => {
         return (
             <div>
                 < FighterForm handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
-                < FighterContainer />
+                < FighterContainer fighters={this.props.fighters} selectFighter={this.props.selectFighter}/>
             </div>
         )
     }
