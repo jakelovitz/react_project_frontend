@@ -1,10 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import FighterContainer from './fight_page/fight_container'
+import FightContainer from './fight_page/fight_container'
 import SelectionContainer from './selection_page/selection_container'
-import { thisExpression } from '@babel/types';
-import Fighter from './selection_page/fighter';
 
 class App extends React.Component {
 
@@ -18,7 +15,7 @@ class App extends React.Component {
  fightersSelected = () => {
     if(this.state.selectedFighterA && this.state.selectedFighterB){
       
-      return <FighterContainer startingPlayer={this.state.turn} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} />
+      return <FightContainer fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} />
     } else {
       return < SelectionContainer fighters={this.state.fighters} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} selectFighter={this.selectFighter} />
     }
@@ -31,7 +28,6 @@ class App extends React.Component {
       fetch('http://localhost:3000/fighters')
           .then(response => response.json())
           .then(data => this.setState({ fighters: data }));
-      
   }
 
   selectFighter = (event) => {
@@ -63,7 +59,7 @@ class App extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <fragment>
+      <div>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
@@ -73,7 +69,7 @@ class App extends React.Component {
       {this.fightersSelected()}
 
     </div>
-      </fragment>
+      </div>
     );
   }
 }

@@ -4,7 +4,7 @@ import '../styling.css'
 class FightingestFighter extends React.Component {
 
     render() {
-      console.log(this.props.fighter)
+    //   console.log(this.props.fighter)
         return (
 
             <div align="center" className="grid-item">
@@ -30,6 +30,11 @@ class FightingestFighter extends React.Component {
                 <button id={this.props.fighter.id} size="small" color="primary" align="center" onClick={(event) => this.props.selectFighter(event)}>
                 Player 2 - Select
                 </button>
+
+                <br></br>
+
+                <button>Delete Fighter</button>
+                <button>Edit Fighter</button>
                 
             </div>
         )
