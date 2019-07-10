@@ -102,7 +102,7 @@ class SelectionContainer extends React.Component {
 
     handleSubmit = (event) => {
         
-        // event.preventDefault()
+        event.preventDefault()
         
         console.log('form submitted')
         this.postFetch()
