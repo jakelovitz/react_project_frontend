@@ -5,7 +5,7 @@ class Battleground extends React.Component {
         
         
         return (
-            <h1>{this.props.turn.name}</h1>
+            <h1>It's {this.props.activeFighter.name}'s turn</h1>
         )
     }
 }

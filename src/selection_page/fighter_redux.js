@@ -4,7 +4,7 @@ import '../styling.css'
 class FightingestFighter extends React.Component {
 
     render() {
-      console.log(this.props.fighter)
+    //   console.log(this.props.fighter)
         return (
 
             <div align="center" className="grid-item">

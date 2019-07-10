@@ -18,15 +18,38 @@ class FightContainer extends React.Component {
      Bmpp2: this.props.fighterB.moves[0].pp2,
      Bmpp3: this.props.fighterB.moves[0].pp3,
      Bmpp4: this.props.fighterB.moves[0].pp4,
-     turn: {}
-
-    
+     turn: {},
+     activeFighter: {},
+     passiveFighter: {}
  }
 
- handleClick= () => {
-       
-
+ handleClick = (event, fighterId) => {
+        if (parseInt(fighterId) === this.state.activeFighter.id) {
+            console.log(`fuckety fuck yeah ${this.state.activeFighter}`)
+        } else {
+            alert("not yo turn dip")
+        }
  }
+
+ componentDidMount(){
+     const fighters = [this.props.fighterA, this.props.fighterB]
+     let activeFighter = this.selectStart()
+     let passiveFighter = {}
+
+    fighters.forEach(function(fighter) {
+        if (fighter !== activeFighter) {
+            passiveFighter = fighter
+        }
+    })
+
+
+     this.setState({
+         activeFighter: activeFighter,
+         passiveFighter: passiveFighter
+     })
+ }
+
+
 
  selectStart = () => {
     let Arr = [this.props.fighterB, this.props.fighterA]
@@ -35,26 +58,14 @@ class FightContainer extends React.Component {
  }
 
 
- componentDidMount(){
-     let startingPlayer = this.selectStart()
-     this.setState({
-         turn: startingPlayer
-     })
- }
-
-//  componentDidUpdate(prevState) { //temporary for setting up the page
-//     if(this.state.turn === prevState.turn)
-     
-    
-//  }
 
  render() {
      console.log(this.state)
      return (
-         <div class="wrapper">
-         <FighterA Ahp={this.state.Ahp} fighterA={this.props.fighterA} class='one'/>
-         <Battleground turn={this.state.turn} class='two'/>
-         <FighterB Bhp={this.state.Bhp} fighterB={this.props.fighterB} class='three'/>
+         <div className="wrapper">
+         <FighterA handleClick={this.handleClick} Ahp={this.state.Ahp} fighterA={this.props.fighterA} class='one'/>
+         <Battleground activeFighter={this.state.activeFighter} class='two'/>
+         <FighterB handleClick={this.handleClick} Bhp={this.state.Bhp} fighterB={this.props.fighterB} class='three'/>
          </div>
      )
  }

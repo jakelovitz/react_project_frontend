@@ -124,7 +124,7 @@ handleChange = (event) => {
     }
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div>
                 < FighterForm handleMoveChange={this.handleMoveChange} handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
