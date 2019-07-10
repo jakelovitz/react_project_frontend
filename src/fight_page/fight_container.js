@@ -12,7 +12,7 @@ class FightContainer extends React.Component {
  state = {
      Ahp: 100,
      Bhp: 100,
-     this.props.FighterA.moves[0]: this.props.fighterA.moves[0].power,
+     Ampp1: this.props.fighterA.moves[0].power,
      Ampp2: this.props.fighterA.moves[1].power,
      Ampp3: this.props.fighterA.moves[2].power,
      Ampp4: this.props.fighterA.moves[3].power,
@@ -22,21 +22,47 @@ class FightContainer extends React.Component {
      Bmpp4: this.props.fighterB.moves[3].power,
      turn: {},
      activeFighter: {},
-     passiveFighter: {}
+     passiveFighter: {},
+     fighterA: this.props.fighterA,
+     fighterB: this.props.fighterB,
+     selectedMoveDamage: 0,
+     selectedMovePower: 0,
+     selectedMoveImage: ""
  }
 
  handleClick = (move, event) => {
-        if (parseInt(move.fighter_id) === this.state.activeFighter.id && this.state.Ampp1 > 0) {
-            console.log(`fuckety fuck yeah ${this.state.activeFighter}`)
+
+        if (parseInt(move.fighter_id) === this.state.activeFighter.id) {
+            console.log(`current fighter is: ${this.state.activeFighter}`)
             console.log(event.target.id)
 
             this.setState({
-                Ampp1: this.state.Ampp1 - 1
+                selectedMoveDamage: move.damage,
+                selectedMovePower: move.power,
+                selectedMoveImage: move.image
+
+
             })
-            console.log(move.power)
-        } else {
+            // this.enactMove(move)
+        }
+        else {
             alert("not yo turn dip")
         }
+        console.log(this.state) //
+ }
+
+ enactMove = (move) => {
+    // this.setState({
+    //     selectedMoveDamage: move.damage,
+    //     selectedMovePower: move.power,
+    //     selectedMoveImage: move.image
+    // })
+    console.log(this.state)
+     
+ }
+
+ componentDidUpdate(prevProps, prevState) {
+    //  this.enactMove() // cannot set state in function calls within componentDidUpdate
  }
 
  componentDidMount(){
@@ -72,7 +98,7 @@ class FightContainer extends React.Component {
      return (
          <div className="wrapper">
          <FighterA handleClick={this.handleClick} Ahp={this.state.Ahp} fighterA={this.props.fighterA} class='one'/>
-         <Battleground activeFighter={this.state.activeFighter} class='two'/>
+         <Battleground image={this.state.selectedMoveImage} activeFighter={this.state.activeFighter} class='two'/>
          <FighterB handleClick={this.handleClick} Bhp={this.state.Bhp} fighterB={this.props.fighterB} class='three'/>
          </div>
      )
