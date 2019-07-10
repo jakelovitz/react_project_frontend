@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import FighterContainer from './fight_page/fight_container'
+import FightContainer from './fight_page/fight_container'
 import SelectionContainer from './selection_page/selection_container'
 
 class App extends React.Component {
@@ -15,7 +15,7 @@ class App extends React.Component {
  fightersSelected = () => {
     if(this.state.selectedFighterA && this.state.selectedFighterB){
       
-      return <FighterContainer startingPlayer={this.state.turn} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} />
+      return <FightContainer startingPlayer={this.state.turn} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} />
     } else {
       return < SelectionContainer fighters={this.state.fighters} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} selectFighter={this.selectFighter} />
     }
@@ -28,7 +28,6 @@ class App extends React.Component {
       fetch('http://localhost:3000/fighters')
           .then(response => response.json())
           .then(data => this.setState({ fighters: data }));
-      
   }
 
   selectFighter = (event) => {

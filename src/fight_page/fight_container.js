@@ -6,26 +6,34 @@ import '../styling.css'
 
 
 class FightContainer extends React.Component {
-
+//working on dynamically setting state keys for power so we can easily update them
+//need to figure out why the back end isn't passing up the hp data so we can set state to decrement it
+//look into having nested state - could we just have the fighterA and fighterB objects as state, with their various keys?
  state = {
      Ahp: 100,
      Bhp: 100,
-     Ampp1: this.props.fighterA.moves[0].pp1,
-     Ampp2: this.props.fighterA.moves[0].pp2,
-     Ampp3: this.props.fighterA.moves[0].pp3,
-     Ampp4: this.props.fighterA.moves[0].pp4,
-     Bmpp1: this.props.fighterB.moves[0].pp1,
-     Bmpp2: this.props.fighterB.moves[0].pp2,
-     Bmpp3: this.props.fighterB.moves[0].pp3,
-     Bmpp4: this.props.fighterB.moves[0].pp4,
+     this.props.FighterA.moves[0]: this.props.fighterA.moves[0].power,
+     Ampp2: this.props.fighterA.moves[1].power,
+     Ampp3: this.props.fighterA.moves[2].power,
+     Ampp4: this.props.fighterA.moves[3].power,
+     Bmpp1: this.props.fighterB.moves[0].power,
+     Bmpp2: this.props.fighterB.moves[1].power,
+     Bmpp3: this.props.fighterB.moves[2].power,
+     Bmpp4: this.props.fighterB.moves[3].power,
      turn: {},
      activeFighter: {},
      passiveFighter: {}
  }
 
- handleClick = (event, fighterId) => {
-        if (parseInt(fighterId) === this.state.activeFighter.id) {
+ handleClick = (move, event) => {
+        if (parseInt(move.fighter_id) === this.state.activeFighter.id && this.state.Ampp1 > 0) {
             console.log(`fuckety fuck yeah ${this.state.activeFighter}`)
+            console.log(event.target.id)
+
+            this.setState({
+                Ampp1: this.state.Ampp1 - 1
+            })
+            console.log(move.power)
         } else {
             alert("not yo turn dip")
         }

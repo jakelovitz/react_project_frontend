@@ -36,67 +36,67 @@ class SelectionContainer extends React.Component {
         }
     }
 
-handleDamageClick = (inc, moveKey, attribute, event) => {
-    event.preventDefault()
+    handleDamageClick = (inc, moveKey, attribute, event) => {
+        event.preventDefault()
 
-    if (inc === '+' && this.state.damagePoints > 0) {
-        this.setState({
-            [moveKey]: {
-                ...this.state[moveKey],
-                [attribute]: this.state[moveKey][attribute] + 1
-            },
-            damagePoints: this.state.damagePoints - 1
-        })
-    } else if (inc === '-' && this.state.damagePoints <= 20 && this.state[moveKey][attribute] > 0) {
-        this.setState({
-            [moveKey]: {
-                ...this.state[moveKey],
-                [attribute]: this.state[moveKey][attribute] - 1
-            },
-            damagePoints: this.state.damagePoints + 1
-        })
-    }
-}
-
-handlePowerClick = (inc, moveKey, attribute, event) => {
-    event.preventDefault()
-    console.log(inc, moveKey, attribute)
-    if (inc === '+' && this.state.damagePoints > 0) {
-
-        this.setState({
-            [moveKey]: {
-                ...this.state[moveKey],
-                [attribute]: this.state[moveKey][attribute] + 1
-            },
-            powerPoints: this.state.powerPoints - 1
-        })
-
-    } else if (inc === '-' && this.state.powerPoints <= 20 && this.state[moveKey][attribute] > 0) {
-        this.setState({
-            [moveKey]: {
-                ...this.state[moveKey],
-                [attribute]: this.state[moveKey][attribute] - 1
-            },
-            powerPoints: this.state.powerPoints + 1
-        })
-    }
-}
-
-handleMoveChange = (moveKey, attribute, value) => {
-    this.setState({
-        [moveKey]: {
-            ...this.state[moveKey],
-            [attribute]: value
+        if (inc === '+' && this.state.damagePoints > 0) {
+            this.setState({
+                [moveKey]: {
+                    ...this.state[moveKey],
+                    [attribute]: this.state[moveKey][attribute] + 1
+                },
+                damagePoints: this.state.damagePoints - 1
+            })
+        } else if (inc === '-' && this.state.damagePoints <= 20 && this.state[moveKey][attribute] > 0) {
+            this.setState({
+                [moveKey]: {
+                    ...this.state[moveKey],
+                    [attribute]: this.state[moveKey][attribute] - 1
+                },
+                damagePoints: this.state.damagePoints + 1
+            })
         }
-    })
-}
+    }
 
-handleChange = (event) => {
+    handlePowerClick = (inc, moveKey, attribute, event) => {
+        event.preventDefault()
+        // console.log(inc, moveKey, attribute)
+        if (inc === '+' && this.state.damagePoints > 0) {
 
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-}
+            this.setState({
+                [moveKey]: {
+                    ...this.state[moveKey],
+                    [attribute]: this.state[moveKey][attribute] + 1
+                },
+                powerPoints: this.state.powerPoints - 1
+            })
+
+        } else if (inc === '-' && this.state.powerPoints <= 20 && this.state[moveKey][attribute] > 0) {
+            this.setState({
+                [moveKey]: {
+                    ...this.state[moveKey],
+                    [attribute]: this.state[moveKey][attribute] - 1
+                },
+                powerPoints: this.state.powerPoints + 1
+            })
+        }
+    }
+
+    handleMoveChange = (moveKey, attribute, value) => {
+        this.setState({
+            [moveKey]: {
+                ...this.state[moveKey],
+                [attribute]: value
+            }
+        })
+    }
+
+    handleChange = (event) => {
+
+        this.setState({
+        [event.target.name]: event.target.value
+        })
+    }
 
 
 
