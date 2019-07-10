@@ -36,10 +36,10 @@ class SelectionContainer extends React.Component {
         }
     }
 
-handleDamageClick = (inc, moveKey, attribute) => {
+handleDamageClick = (inc, moveKey, attribute, event) => {
+    event.preventDefault()
 
     if (inc === '+' && this.state.damagePoints > 0) {
-        
         this.setState({
             [moveKey]: {
                 ...this.state[moveKey],
@@ -58,7 +58,8 @@ handleDamageClick = (inc, moveKey, attribute) => {
     }
 }
 
-handlePowerClick = (inc, moveKey, attribute) => {
+handlePowerClick = (inc, moveKey, attribute, event) => {
+    event.preventDefault()
     console.log(inc, moveKey, attribute)
     if (inc === '+' && this.state.damagePoints > 0) {
 
@@ -100,13 +101,14 @@ handleChange = (event) => {
 
 
     handleSubmit = (event) => {
-        event.preventDefault()
         
-        console.log('hey tim')
-        this.postFetch(event)
+        // event.preventDefault()
+        
+        console.log('form submitted')
+        this.postFetch()
     }
 
-    postFetch = (event) => {
+    postFetch = () => {
         fetch('http://localhost:3000/fighters', {
             method: 'POST',
             headers: {

@@ -5,29 +5,19 @@ import '../styling.css'
 
 class FighterForm extends React.Component {
 
-    // state = {
-    //     fighters: []
-    // }
-
-
-    // componentDidMount() {
-    //     fetch('http://localhost:3000/fighters')
-    //         .then(response => response.json())
-    //         .then(data => this.setState({ fighters: data }));
-        
-    // }
-
     render() {
         
         return (
             
              <div>
                 <h1 align="center">Or Add One!</h1>
+                {this.props.fighters.map((fighter) => {
+                    return <p>{fighter.name}</p>
+                })}
 
-
-                {this.props.fighters.map ((fighter) => {
+                {/* {this.props.fighters.map ((fighter) => {
 				  return <Fighter fighter={fighter} key={fighter.id} selectFighter={this.props.selectFighter} selectFighter={this.props.selectFighter}/>
-              })}
+              })} */}
             </div> 
         )
     }

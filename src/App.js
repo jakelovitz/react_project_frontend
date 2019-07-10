@@ -15,15 +15,6 @@ class App extends React.Component {
     
   }
 
-  
-
- 
-
-    
-
-  
-
-
  fightersSelected = () => {
     if(this.state.selectedFighterA && this.state.selectedFighterB){
       
@@ -70,7 +61,7 @@ class App extends React.Component {
   }
 
   render() {
-
+    console.log(this.state)
     return (
       <fragment>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
