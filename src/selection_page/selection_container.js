@@ -102,7 +102,7 @@ handleChange = (event) => {
 
     handleSubmit = (event) => {
         
-        event.preventDefault()
+        // event.preventDefault()
         
         console.log('form submitted')
         this.postFetch()
