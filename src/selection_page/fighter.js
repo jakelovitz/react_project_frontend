@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 class Fighter extends React.Component {
 
     render() {
+      
         return (
 
             <Card align="center">

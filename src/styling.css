@@ -16,3 +16,9 @@
   grid-column: 3;
   grid-row: 1;
 }
+.grid-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 500px 500px;
+  /* grid-column-gap: 1px; */
+}
