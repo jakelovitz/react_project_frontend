@@ -15,7 +15,7 @@ class App extends React.Component {
  fightersSelected = () => {
     if(this.state.selectedFighterA && this.state.selectedFighterB){
       
-      return <FightContainer startingPlayer={this.state.turn} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} />
+      return <FightContainer fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} />
     } else {
       return < SelectionContainer fighters={this.state.fighters} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} selectFighter={this.selectFighter} />
     }

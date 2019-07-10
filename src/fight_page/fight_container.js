@@ -10,59 +10,54 @@ class FightContainer extends React.Component {
 //need to figure out why the back end isn't passing up the hp data so we can set state to decrement it
 //look into having nested state - could we just have the fighterA and fighterB objects as state, with their various keys?
  state = {
-     Ahp: 100,
-     Bhp: 100,
-     Ampp1: this.props.fighterA.moves[0].power,
-     Ampp2: this.props.fighterA.moves[1].power,
-     Ampp3: this.props.fighterA.moves[2].power,
-     Ampp4: this.props.fighterA.moves[3].power,
-     Bmpp1: this.props.fighterB.moves[0].power,
-     Bmpp2: this.props.fighterB.moves[1].power,
-     Bmpp3: this.props.fighterB.moves[2].power,
-     Bmpp4: this.props.fighterB.moves[3].power,
-     turn: {},
      activeFighter: {},
      passiveFighter: {},
      fighterA: this.props.fighterA,
      fighterB: this.props.fighterB,
      selectedMoveDamage: 0,
      selectedMovePower: 0,
-     selectedMoveImage: ""
+     selectedMoveImage: "",
+     fighterAHp: this.props.fighterA.hp,
+     fighterBHp: this.props.fighterB.hp
  }
 
- handleClick = (move, event) => {
+ handleClick = (move) => {
 
         if (parseInt(move.fighter_id) === this.state.activeFighter.id) {
-            console.log(`current fighter is: ${this.state.activeFighter}`)
-            console.log(event.target.id)
+            
+            if (this.state.activeFighter.id === this.state.fighterA.id) {
+                // this.state.fighterB.hp = this.state.fighterB.hp - move.damage
+                this.setState({
+                    selectedMoveDamage: move.damage,
+                    selectedMovePower: move.power,
+                    selectedMoveImage: move.image,
+                    activeFighter: {...this.state.activeFighter},
+                    fighterA: {...this.state.activeFighter},
+                    fighterBHp: this.state.fighterBHp - move.damage,
+                    activeFighter: {...this.state.fighterB}
+                })
+                console.log('fighterA hp:', this.state.fighterAHp)
+                console.log('fighterB hp:', this.state.fighterBHp)
+                
+            } else if (this.state.activeFighter.id === this.state.fighterB.id) {
+                // this.state.fighterA.hp = this.state.fighterA.hp - move.damage
+                this.setState({
+                    selectedMoveDamage: move.damage,
+                    selectedMovePower: move.power,
+                    selectedMoveImage: move.image,
+                    activeFighter: {...this.state.activeFighter},
+                    fighterB: {...this.state.activeFighter},
+                    fighterAHp: this.state.fighterAHp - move.damage,
+                    activeFighter: {...this.state.fighterA}
+                })
 
-            this.setState({
-                selectedMoveDamage: move.damage,
-                selectedMovePower: move.power,
-                selectedMoveImage: move.image
-
-
-            })
-            // this.enactMove(move)
+                console.log('fighterA hp:', this.state.fighterAHp)
+                console.log('fighterB hp:', this.state.fighterBHp)
+            }
         }
         else {
             alert("not yo turn dip")
         }
-        console.log(this.state) //
- }
-
- enactMove = (move) => {
-    // this.setState({
-    //     selectedMoveDamage: move.damage,
-    //     selectedMovePower: move.power,
-    //     selectedMoveImage: move.image
-    // })
-    console.log(this.state)
-     
- }
-
- componentDidUpdate(prevProps, prevState) {
-    //  this.enactMove() // cannot set state in function calls within componentDidUpdate
  }
 
  componentDidMount(){
@@ -97,9 +92,9 @@ class FightContainer extends React.Component {
      console.log(this.state)
      return (
          <div className="wrapper">
-         <FighterA handleClick={this.handleClick} Ahp={this.state.Ahp} fighterA={this.props.fighterA} class='one'/>
+         <FighterA handleClick={this.handleClick} fighterAHp={this.state.fighterAHp} fighterA={this.props.fighterA} class='one'/>
          <Battleground image={this.state.selectedMoveImage} activeFighter={this.state.activeFighter} class='two'/>
-         <FighterB handleClick={this.handleClick} Bhp={this.state.Bhp} fighterB={this.props.fighterB} class='three'/>
+         <FighterB handleClick={this.handleClick} fighterBHp={this.state.fighterBHp} fighterB={this.props.fighterB} class='three'/>
          </div>
      )
  }
