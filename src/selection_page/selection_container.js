@@ -102,10 +102,11 @@ class SelectionContainer extends React.Component {
 
     handleSubmit = (event) => {
         
-        event.preventDefault()
+        // event.preventDefault()
         
         console.log('form submitted')
-        this.postFetch()
+        // this.postFetch()
+        this.props.handlePost(this.postFetch())
     }
 
     postFetch = () => {
@@ -120,6 +121,7 @@ class SelectionContainer extends React.Component {
         .then(results => results.json())
         .then(data => {
             console.log(data)
+            return data
         })
     }
 

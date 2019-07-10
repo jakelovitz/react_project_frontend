@@ -17,7 +17,7 @@ class App extends React.Component {
       
       return <FightContainer fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} />
     } else {
-      return < SelectionContainer fighters={this.state.fighters} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} selectFighter={this.selectFighter} handleDelete={this.handleDelete}/>
+      return < SelectionContainer fighters={this.state.fighters} fighterA={this.state.selectedFighterA} fighterB={this.state.selectedFighterB} selectFighter={this.selectFighter} handleDelete={this.handleDelete} handlePost={this.handlePost}/>
     }
   }
 
@@ -56,6 +56,12 @@ class App extends React.Component {
     return selectedFighter[0]
   }
 
+  handlePost = (data) => {
+    this.setState({
+      fighters: this.state.fighters
+    })
+  }
+
   handleDelete = (id) => {
     fetch(`http://localhost:3000/fighters/${id}`, {
         method: "DELETE",
@@ -67,6 +73,10 @@ class App extends React.Component {
         fighters: res
     }) )
 }
+  handlePatch = (id) => {
+    //PATCH Request
+  }
+
 
   render() {
     console.log(this.state)

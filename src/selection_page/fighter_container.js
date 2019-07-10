@@ -6,7 +6,7 @@ import '../styling.css'
 class FighterForm extends React.Component {
 
     render() {
-        
+        console.log(this.props.fighters)
         return (
             
             <div>
