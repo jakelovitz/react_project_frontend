@@ -1,10 +1,44 @@
 import React from "react";
 import '../styling.css'
 
+
 class FightingestFighter extends React.Component {
 
+    state = {
+        toggle: false
+    }
+
+    toggleState = () => {
+        this.setState({
+            toggle: !this.state.toggle
+        })
+       
+    }
+
+    renderEditForm(){
+        console.log(this.props.fighter)
+            return ( 
+            <div>
+                <h1>Edit Fighter</h1>
+                <form onSubmit={(event) => this.props.handlePatch(this.props.fighter.id, event)}>
+                        <input onChange={(event) => this.props.handleChange(event)} value={this.props.state.fighterName}  name="fighterName" type="text" placeholder={this.props.fighter.name}/>
+                        <input onChange={(event) => this.props.handleChange(event)} value={this.props.state.fighterImage} name="fighterImage" type="text" placeholder={this.props.fighter.img_url}/> 
+                        <input type="submit" value="Submit" />
+                </form>
+            </div>
+            )
+
+        }
+
     render() {
-    //   console.log(this.props.fighter)
+        let returnDiv
+
+        if (this.state.toggle) {
+            returnDiv = this.renderEditForm()
+            
+        } else {
+            returnDiv = null
+        }
         return (
 
             <div align="center" className="grid-item">
@@ -34,9 +68,11 @@ class FightingestFighter extends React.Component {
                 <br></br>
 
                 <button id={this.props.fighter.id} onClick={(event) => this.props.handleDelete(this.props.fighter.id)}>Delete Fighter</button>
-                <button id={this.props.fighter.id}>Edit Fighter</button>
+                <button onClick={(e) => this.toggleState()} id={this.props.fighter.id}>Edit Fighter</button>
                 
-            </div>
+                <div>{returnDiv}</div>
+                
+         </div>
         )
     }
 

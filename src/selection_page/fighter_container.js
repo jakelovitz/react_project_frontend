@@ -15,7 +15,7 @@ class FighterForm extends React.Component {
                 <div className="grid-container" align="center"> 
 
                     {this.props.fighters.map ((fighter) => {
-                    return <FightingestFighter fighter={fighter} key={fighter.id} selectFighter={this.props.selectFighter} handleDelete={this.props.handleDelete}/>
+                    return <FightingestFighter state={this.props.state} handleChange={this.props.handleChange} fighter={fighter} key={fighter.id} selectFighter={this.props.selectFighter} handleDelete={this.props.handleDelete} handlePatch={this.props.handlePatch}/>
                     })}
                     
                 </div> 

@@ -73,9 +73,7 @@ class App extends React.Component {
         fighters: res
     }) )
 }
-  handlePatch = (id) => {
-    //PATCH Request
-  }
+
 
 
   render() {

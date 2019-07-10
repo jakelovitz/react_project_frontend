@@ -98,6 +98,25 @@ class SelectionContainer extends React.Component {
         })
     }
 
+   handlePatch = (id, event) => {
+       event.preventDefault()
+       console.log('here')
+       fetch(`https://localhost:3000/fighters/${id}`, {
+           method: "PATCH",
+           headers: {
+               "Content-Type": "application/json",
+               "Accept": "application/json"
+           }, 
+           body: JSON.stringify({
+            name: this.state.fighterName,
+            image: this.state.fighterImage
+           })
+       })
+        .then(rsp => rsp.json())
+        .then(rsp => console.log(rsp))
+   }
+
+
 
 
     handleSubmit = (event) => {
@@ -126,12 +145,12 @@ class SelectionContainer extends React.Component {
     }
 
     render() {
-        // console.log(this.state)
+        console.log(this.state.fighterImage)
         return (
             <div>
                 < FighterForm handleMoveChange={this.handleMoveChange} handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
                 <br></br>
-                < FighterContainer fighters={this.props.fighters} selectFighter={this.props.selectFighter} handleDelete={this.props.handleDelete}/>
+                < FighterContainer handlePatch={this.handlePatch} state={this.state} handleChange={this.handleChange} fighters={this.props.fighters} selectFighter={this.props.selectFighter} handleDelete={this.props.handleDelete}/>
             </div>
         )
     }
