@@ -6,7 +6,7 @@ import '../styling.css'
 class FighterForm extends React.Component {
 
     render() {
-        
+        console.log(this.props.fighters)
         return (
             
             <div>
@@ -15,7 +15,7 @@ class FighterForm extends React.Component {
                 <div className="grid-container" align="center"> 
 
                     {this.props.fighters.map ((fighter) => {
-                    return <FightingestFighter fighter={fighter} key={fighter.id} selectFighter={this.props.selectFighter} />
+                    return <FightingestFighter fighter={fighter} key={fighter.id} selectFighter={this.props.selectFighter} handleDelete={this.props.handleDelete}/>
                     })}
                     
                 </div> 

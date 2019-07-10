@@ -102,10 +102,11 @@ class SelectionContainer extends React.Component {
 
     handleSubmit = (event) => {
         
-        event.preventDefault()
+        // event.preventDefault()
         
         console.log('form submitted')
-        this.postFetch()
+        // this.postFetch()
+        this.props.handlePost(this.postFetch())
     }
 
     postFetch = () => {
@@ -120,6 +121,7 @@ class SelectionContainer extends React.Component {
         .then(results => results.json())
         .then(data => {
             console.log(data)
+            return data
         })
     }
 
@@ -129,7 +131,7 @@ class SelectionContainer extends React.Component {
             <div>
                 < FighterForm handleMoveChange={this.handleMoveChange} handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
                 <br></br>
-                < FighterContainer fighters={this.props.fighters} selectFighter={this.props.selectFighter}/>
+                < FighterContainer fighters={this.props.fighters} selectFighter={this.props.selectFighter} handleDelete={this.props.handleDelete}/>
             </div>
         )
     }
