@@ -33,8 +33,8 @@ class FightingestFighter extends React.Component {
 
                 <br></br>
 
-                <button>Delete Fighter</button>
-                <button>Edit Fighter</button>
+                <button id={this.props.fighter.id} onClick={(event) => this.props.handleDelete(this.props.fighter.id)}>Delete Fighter</button>
+                <button id={this.props.fighter.id}>Edit Fighter</button>
                 
             </div>
         )

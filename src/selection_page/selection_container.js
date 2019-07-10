@@ -129,7 +129,7 @@ class SelectionContainer extends React.Component {
             <div>
                 < FighterForm handleMoveChange={this.handleMoveChange} handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
                 <br></br>
-                < FighterContainer fighters={this.props.fighters} selectFighter={this.props.selectFighter}/>
+                < FighterContainer fighters={this.props.fighters} selectFighter={this.props.selectFighter} handleDelete={this.props.handleDelete}/>
             </div>
         )
     }
