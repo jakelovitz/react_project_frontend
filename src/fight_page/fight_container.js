@@ -2,7 +2,7 @@ import React from "react";
 import FighterA from './fighterA'
 import FighterB from './fighterB'
 import Battleground from './battleground'
-import '../styling.css'
+import styles from './container.module.css'
 
 
 class FightContainer extends React.Component {
@@ -91,10 +91,20 @@ class FightContainer extends React.Component {
  render() {
      console.log(this.state)
      return (
-         <div className="wrapper">
-         <FighterA handleClick={this.handleClick} fighterAHp={this.state.fighterAHp} fighterA={this.props.fighterA} class='one'/>
-         <Battleground image={this.state.selectedMoveImage} activeFighter={this.state.activeFighter} class='two'/>
-         <FighterB handleClick={this.handleClick} fighterBHp={this.state.fighterBHp} fighterB={this.props.fighterB} class='three'/>
+         <div className={styles.wrapper}>
+
+            <div className={styles.fighterA}>
+                <FighterA handleClick={this.handleClick} fighterAHp={this.state.fighterAHp} fighterA={this.props.fighterA} />
+            </div>
+
+            <div className={styles.battleground}>
+                <Battleground image={this.state.selectedMoveImage} activeFighter={this.state.activeFighter} />
+            </div>
+
+            <div className={styles.fighterB}>
+                <FighterB handleClick={this.handleClick} fighterBHp={this.state.fighterBHp} fighterB={this.props.fighterB} />
+            </div>
+
          </div>
      )
  }

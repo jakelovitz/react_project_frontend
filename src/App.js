@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.css';
 import FightContainer from './fight_page/fight_container'
 import SelectionContainer from './selection_page/selection_container'
 
@@ -79,16 +79,17 @@ class App extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <div>
+      <div className={styles.App}>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
 
-      <div>
-      
-      {this.fightersSelected()}
+        <div>
+        
+        {this.fightersSelected()}
 
-    </div>
+        </div>
+
       </div>
     );
   }
