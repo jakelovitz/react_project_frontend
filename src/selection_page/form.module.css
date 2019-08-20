@@ -1,0 +1,124 @@
+.container {
+    display: grid;
+    align-items: stretch;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+    border-radius: 10%;
+    background: gray;
+}
+
+.basicDeets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+    padding: 2%;
+    border: 1px solid black;
+    align-content: right;
+    grid-column-gap: 1%;
+    margin: 3%;
+    border-radius: 15%;
+    color: purple;
+
+}
+
+.moveDeets {
+    padding: 2%;
+    align-items: center;
+    justify-items: center;
+    border: 1px solid black;
+    grid-column-gap: 1%;
+    margin: 3%;
+    border-radius: 15%;
+    color: purple;
+}
+
+.moveOne {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    padding: 2%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 2;
+    border: 1px solid black;
+    border-radius: 15%;
+
+    margin: 3%;
+    border-radius: 15%;
+    color: purple;
+}
+
+.moveTwo {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    padding: 2%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 2;
+    border: 1px solid black;
+
+    margin: 3%;
+    border-radius: 15%;
+    color: purple;
+}
+
+.moveThree {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    padding: 2%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 3;
+    border: 1px solid black;
+
+    margin: 3%;
+    border-radius: 15%;
+    color: purple;
+}
+
+.moveFour {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    padding: 2%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 3;
+    border: 1px solid black;
+
+    margin: 3%;
+    border-radius: 15%;
+    color: purple;
+}
+
+.submit {
+    padding: 2%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 2%;
+    padding: 1%;
+    grid-row: 4;
+    border: 1px solid black;
+    border-radius: 15%;
+    color: purple;
+    background-color: white;
+}
