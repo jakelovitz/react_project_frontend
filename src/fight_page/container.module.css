@@ -3,30 +3,53 @@
     grid-template-columns: 1fr 1fr 1fr;
     border: 1px solid black;
     margin: 1%;
+    padding-top: 2%;
+
+    justify-content: center;
+    justify-items: center;
+   
   }
   
 .fighterA {
   grid-column-start: 1;
   grid-column-end: 2;
-  background-color: aqua;
+  background-color: white;
 
   border: 1px solid black;
-  margin: 1%;
+  
 }
 .battleground { 
-  display: grid;
-  grid-template-columns: auto 1fr;
+  
   grid-column-start: 2;
   grid-column-end: 3;
 
   border: 1px solid black;
-  margin: 1%;
+  justify-items: center;
+  justify-self: stretch;
+
+  
+  background-color: white;
+  
 }
+
+.moveImage {
+  width: 400px;
+  height: 400px;
+  justify-content: center;
+  justify-self: center;
+  -webkit-animation:spin 4s linear;
+    -moz-animation:spin 4s linear;
+    animation:spin 4s linear;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
 .fighterB {
   grid-column-start: 3;
   grid-column-end: 4;
-  background-color: aqua;
+  background-color: white;
 
   border: 1px solid black;
-  margin: 1%;
+ 
 }
