@@ -36,7 +36,7 @@ class FighterForm extends React.Component {
                     <div>
                         <input onChange={(event) => this.props.handleMoveChange("moveOne", "name", event.target.value)} value={this.props.state.moveOne.name} name="moveOneName" placeholder="Move One Name" type="text" />
 
-                        <input onChange={(event) => this.props.handleMoveChange("moveOne", "image", event.target.value )} value={this.props.state.moveOne.image} name="moveOneImage" placeholder="Move One image" type="text" />
+                        <input onChange={(event) => this.props.handleMoveChange("moveOne", "image", event.target.value )} value={this.props.state.moveOne.image} name="moveOneImage" placeholder="Move One Image" type="text" />
                     </div>
 
                     <div>

@@ -6,7 +6,7 @@ class Battleground extends React.Component {
         
         return (
             
-            <div>
+            <div style={{alignContent: 'center'}}>
             <h1>It's {this.props.activeFighter.name}'s turn</h1>
             
             {this.props.image ? <img src={this.props.image} width={400} height={400}></img> : null}
