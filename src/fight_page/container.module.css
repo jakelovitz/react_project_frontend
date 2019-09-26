@@ -3,26 +3,29 @@
     grid-template-columns: 1fr 1fr 1fr;
     border: 1px solid black;
     margin: 1%;
+
     padding-top: 2%;
 
     justify-content: center;
     justify-items: center;
    
+
   }
   
 .fighterA {
   grid-column-start: 1;
   grid-column-end: 2;
-  background-color: white;
 
   border: 1px solid black;
   
 }
 .battleground { 
-  
+
   grid-column-start: 2;
   grid-column-end: 3;
-
+  display: grid;
+  grid-template-rows: auto 1fr;
+  justify-content: center;
   border: 1px solid black;
   justify-items: center;
   justify-self: stretch;
@@ -48,7 +51,7 @@
 .fighterB {
   grid-column-start: 3;
   grid-column-end: 4;
-  background-color: white;
+
 
   border: 1px solid black;
  

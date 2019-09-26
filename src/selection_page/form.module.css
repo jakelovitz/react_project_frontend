@@ -2,6 +2,12 @@
     display: grid;
     margin-left: 10%;
     margin-right: 10%;
+
+    
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+    border: 1px solid black;
+
     height: auto;
     width: auto;
     border: 2px solid black;
@@ -17,14 +23,27 @@
     background: gray;
     grid-row-gap: 4%;
     overflow: auto;
+
 }
 
 .basicDeets {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
     align-items: center;
     justify-items: center;
+
+
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-right: 10%;
+    padding-left: 10%;
+
+    border: 1px solid black;
+    align-content: right;
+    margin: 3%;
+    color: purple;
+
     margin-left: 10%;
     margin-right: 10%;
     height: auto;
@@ -35,6 +54,7 @@
     padding: 5%;
     border-radius: 10%;
     overflow: auto;
+
 
 }
 
@@ -49,6 +69,10 @@
     justify-content: center;
     
     grid-column-gap: 1%;
+
+    margin: 3%;
+    color: purple;
+
     margin-left: 10%;
     margin-right: 10%;
     
@@ -56,14 +80,68 @@
     border-radius: 15%;
     background: gray;
     height: auto;
+
 }
 
 .moveOne {
 
     padding: 2%;
 
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 2;
+    border: 1px solid black;
+
+    margin: 3%;
+    color: purple;
+}
+
+
     align-items: center;
     justify-items: center;
+
+
+    padding: 2%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 2;
+    border: 1px solid black;
+
+    margin: 3%;
+    color: purple;
+}
+
+.moveThree {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    padding: 2%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row: 3;
+    border: 1px solid black;
+
+    margin: 3%;
+    color: purple;
+}
+
+.moveFour {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    padding: 2%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row: 3;
+    border: 1px solid black;
+
+    margin: 3%;
+    color: purple;
+
     justify-content: center;
     justify-items: center;
 
@@ -75,12 +153,23 @@
     border-radius: 15%;
     background: gray;
     height: auto;
+
 }
 
 .submit {
     
     grid-column-start: 1;
     grid-column-end: 3;
+
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 2%;
+    padding: 1%;
+    grid-row: 4;
+    border: 1px solid black;
+    color: purple;
+    background-color: white;
+
     
 
     align-items: center;
@@ -93,4 +182,5 @@
     border-radius: 15%;
     background: gray;
     height: auto;
+
 }
