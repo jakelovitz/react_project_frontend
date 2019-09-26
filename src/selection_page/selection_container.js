@@ -1,6 +1,7 @@
 import React from "react";
 import FighterForm from "./fighter_form";
 import FighterContainer from "./fighter_container"
+import '../styling.css'
 
 class SelectionContainer extends React.Component {
 
@@ -147,7 +148,7 @@ class SelectionContainer extends React.Component {
     render() {
         console.log(this.state.fighterImage)
         return (
-            <div>
+            <div className="selection-container">
                 < FighterForm handleMoveChange={this.handleMoveChange} handleChange={this.handleChange} handlePowerClick={this.handlePowerClick} handleDamageClick={this.handleDamageClick} handleSubmit={this.handleSubmit} state={this.state}/>
                 <br></br>
                 < FighterContainer handlePatch={this.handlePatch} state={this.state} handleChange={this.handleChange} fighters={this.props.fighters} selectFighter={this.props.selectFighter} handleDelete={this.props.handleDelete}/>
