@@ -1,5 +1,11 @@
 import React from "react";
 
+import styled from 'styled-components'
+
+const MoveBorder = styled('div')`
+    
+`
+
 class FighterBMoves extends React.Component {
     render() {
         return (

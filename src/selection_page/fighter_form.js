@@ -7,7 +7,7 @@ class FighterForm extends React.Component {
         
         return (
             <React.Fragment>
-            <h1 style={{textAlign: 'center'}}>Make a fighter!</h1>
+            <h1 style={{textAlign: 'center', paddingTop: '2%'}}>Make a fighter!</h1>
             
             <form value={this.props.state} className={styles.container} onSubmit={(event) => this.props.handleSubmit(event)} >
 
@@ -60,7 +60,7 @@ class FighterForm extends React.Component {
 
                 </div>
 
-                <div className={styles.moveTwo}>
+                <div className={styles.moveOne}>
 
                     <label>Move Two</label>
 
@@ -88,7 +88,7 @@ class FighterForm extends React.Component {
                     </div>
                 </div>
 
-                <div className={styles.moveThree}>
+                <div className={styles.moveOne}>
 
                     <label>Move Three</label>
                     
@@ -116,7 +116,7 @@ class FighterForm extends React.Component {
 
                
 
-                <div className={styles.moveFour}>
+                <div className={styles.moveOne}>
 
                     <label>Move Four</label>
                    

@@ -1,6 +1,45 @@
 import React from "react";
+import styled from 'styled-components'
 import '../styling.css'
 
+const Thing = styled.button`
+  color: blue;
+
+  ::before {
+    content: '🚀';
+  }
+
+  :hover {
+    color: red;
+  }
+`
+
+const FighterBorder = styled('div')`
+   
+    text-align: center;
+
+    margin-top: 10%;
+    margin-right: 10%;
+    margin-left: 10%;
+    
+    padding: 2%;
+
+    align-items: center;
+    justify-items: center;
+    grid-column-gap: 1%;
+    
+    height: auto; padding-right: 2%;
+    padding-left: 2%;
+    padding-top: 2%;
+
+    align-items: center;
+    justify-items: center;
+    
+    border-radius: 15%;
+    background: white;
+    height: auto;
+    color: black;
+`
 
 class FightingestFighter extends React.Component {
 
@@ -31,7 +70,7 @@ class FightingestFighter extends React.Component {
         }
 
     render() {
-        let returnDiv
+        let returnDiv //declare variable for the edit form 
 
         if (this.state.toggle) {
             returnDiv = this.renderEditForm()
@@ -41,7 +80,7 @@ class FightingestFighter extends React.Component {
         }
         return (
 
-            <div align="center" className="grid-item">
+            <FighterBorder>
                 {this.props.fighter.name}
 
                 <br></br>
@@ -51,8 +90,9 @@ class FightingestFighter extends React.Component {
                 <img src={this.props.fighter.img_url} alt={this.props.fighter.name} width={250} height={300} mode='fit'/>
 
                 <br></br>
-
-                <ul>{this.props.fighter.moves[0].name}</ul>
+                
+                
+                <ul >{this.props.fighter.moves[0].name}</ul>
                 <ul>{this.props.fighter.moves[1].name}</ul>
                 <ul>{this.props.fighter.moves[2].name}</ul>
                 <ul>{this.props.fighter.moves[3].name}</ul>
@@ -72,7 +112,7 @@ class FightingestFighter extends React.Component {
                 
                 <div>{returnDiv}</div>
                 
-         </div>
+         </FighterBorder>
         )
     }
 
