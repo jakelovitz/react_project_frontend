@@ -1,8 +1,12 @@
 import React from 'react';
-import styles from './App.module.css';
 import FightContainer from './fight_page/fight_container'
 import SelectionContainer from './selection_page/selection_container'
+import styled from 'styled-components'
 
+const Background = styled.div`
+  background: grey;
+  height: 200%;
+`
 class App extends React.Component {
 
   state = {
@@ -79,9 +83,7 @@ class App extends React.Component {
   render() {
     console.log(this.state)
     return (
-      <div className={styles.App}>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+      <Background>
 
 
         <div>
@@ -90,7 +92,7 @@ class App extends React.Component {
 
         </div>
 
-      </div>
+      </Background>
     );
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import styles from './container.module.css'
 
 class Battleground extends React.Component {
 
@@ -6,6 +7,7 @@ class Battleground extends React.Component {
         
         return (
             
+
             <div style={{alignContent: 'center'}}>
             <h1>It's {this.props.activeFighter.name}'s turn</h1>
             

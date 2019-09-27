@@ -98,7 +98,7 @@ class FightContainer extends React.Component {
             </div>
 
             <div className={styles.battleground}>
-                <Battleground image={this.state.selectedMoveImage} activeFighter={this.state.activeFighter} />
+                <Battleground image={this.state.selectedMoveImage} moveDamage={this.state.selectedMoveDamage} activeFighter={this.state.activeFighter} />
             </div>
 
             <div className={styles.fighterB}>
