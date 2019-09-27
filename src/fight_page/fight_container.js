@@ -78,34 +78,73 @@ class FightContainer extends React.Component {
      })
  }
 
-
-
  selectStart = () => {
     let Arr = [this.props.fighterB, this.props.fighterA]
      return Arr[Math.floor(Math.random() * Arr.length)];
-
  }
 
+ determineWinner = () => {
+     let winner;
 
+     if (this.state.fighterAHp > 0) {
+         winner = this.state.fighterA.name;
+     } else {
+         winner = this.state.fighterB.name;
+     }
+     return winner
+ }
 
  render() {
      console.log(this.state)
+    let fightStage;
+
+    function refreshPage() {
+        window.location.reload(false);
+      }
+
+     if (this.state.fighterAHp > 0 && this.state.fighterBHp > 0) {
+        fightStage = <div className={styles.wrapper}>
+   
+               <div className={styles.fighterA}>
+                   <FighterA handleClick={this.handleClick} fighterAHp={this.state.fighterAHp} fighterA={this.props.fighterA} />
+               </div>
+   
+               <div className={styles.battleground}>
+                   <Battleground image={this.state.selectedMoveImage} moveDamage={this.state.selectedMoveDamage} activeFighter={this.state.activeFighter} />
+               </div>
+   
+               <div className={styles.fighterB}>
+                   <FighterB handleClick={this.handleClick} fighterBHp={this.state.fighterBHp} fighterB={this.props.fighterB} />
+               </div>
+   
+            </div>
+    } else {
+        fightStage = <div className={styles.finalDisplay}>
+            <h1>{this.determineWinner()} Won!</h1>
+            <button onClick={refreshPage}>Play Again!</button>
+        </div>
+    }
+
      return (
-         <div className={styles.wrapper}>
+        //  <div className={styles.wrapper}>
 
-            <div className={styles.fighterA}>
-                <FighterA handleClick={this.handleClick} fighterAHp={this.state.fighterAHp} fighterA={this.props.fighterA} />
-            </div>
+        //     <div className={styles.fighterA}>
+        //         <FighterA handleClick={this.handleClick} fighterAHp={this.state.fighterAHp} fighterA={this.props.fighterA} />
+        //     </div>
 
-            <div className={styles.battleground}>
-                <Battleground image={this.state.selectedMoveImage} moveDamage={this.state.selectedMoveDamage} activeFighter={this.state.activeFighter} />
-            </div>
+        //     <div className={styles.battleground}>
+        //         <Battleground image={this.state.selectedMoveImage} moveDamage={this.state.selectedMoveDamage} activeFighter={this.state.activeFighter} />
+        //     </div>
 
-            <div className={styles.fighterB}>
-                <FighterB handleClick={this.handleClick} fighterBHp={this.state.fighterBHp} fighterB={this.props.fighterB} />
-            </div>
+        //     <div className={styles.fighterB}>
+        //         <FighterB handleClick={this.handleClick} fighterBHp={this.state.fighterBHp} fighterB={this.props.fighterB} />
+        //     </div>
 
-         </div>
+        //  </div>
+        <div>
+            {fightStage}
+        </div>
+
      )
  }
 }

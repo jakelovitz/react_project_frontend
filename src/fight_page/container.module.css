@@ -42,3 +42,9 @@
   grid-column-end: 4;
   border: 1px solid black;
 }
+
+.finalDisplay {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
