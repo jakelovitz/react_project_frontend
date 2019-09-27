@@ -6,17 +6,17 @@
   margin-right: 10%;
   height: auto;
   width: auto;
-  border: 2px solid black;
+  border: 1px solid black;
   justify-content: stretch;
   grid-row-gap: 2%;
   padding: 5%;
-  border-radius: 10%;
-  background: gray;
+  background: white;
   overflow: auto;
+  height: 200%;
   /* grid-column-gap: 1px; */
 }
 
 .selection-container {
-  color: white;
-  background: black;
+  color: black;
+  background: white;
 }

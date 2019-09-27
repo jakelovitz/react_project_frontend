@@ -60,7 +60,7 @@ class FighterForm extends React.Component {
 
                 </div>
 
-                <div className={styles.moveOne}>
+                <div className={styles.moveTwo}>
 
                     <label>Move Two</label>
 
@@ -88,7 +88,7 @@ class FighterForm extends React.Component {
                     </div>
                 </div>
 
-                <div className={styles.moveOne}>
+                <div className={styles.moveThree}>
 
                     <label>Move Three</label>
                     
@@ -116,7 +116,7 @@ class FighterForm extends React.Component {
 
                
 
-                <div className={styles.moveOne}>
+                <div className={styles.moveFour}>
 
                     <label>Move Four</label>
                    
