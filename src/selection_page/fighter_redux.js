@@ -2,17 +2,6 @@ import React from "react";
 import styled from 'styled-components'
 import '../styling.css'
 
-const Thing = styled.button`
-  color: blue;
-
-  ::before {
-    content: '🚀';
-  }
-
-  :hover {
-    color: red;
-  }
-`
 
 const FighterBorder = styled('div')`
    
@@ -61,7 +50,7 @@ class FightingestFighter extends React.Component {
                 <h1>Edit Fighter</h1>
                 <form onSubmit={(event) => this.props.handlePatch(this.props.fighter.id, event)}>
                         <input onChange={(event) => this.props.handleChange(event)} value={this.props.state.fighterName}  name="fighterName" type="text" placeholder={this.props.fighter.name}/>
-                        <input onChange={(event) => this.props.handleChange(event)} value={this.props.state.fighterImage} name="fighterImage" type="text" placeholder={this.props.fighter.img_url}/> 
+                        {/* <input onChange={(event) => this.props.handleChange(event)} value={this.props.state.fighterImage} name="fighterImage" type="text" placeholder={this.props.fighter.img_url}/>  */}
                         <input type="submit" value="Submit" />
                 </form>
             </div>
@@ -108,7 +97,7 @@ class FightingestFighter extends React.Component {
                 <br></br>
 
                 <button id={this.props.fighter.id} onClick={(event) => this.props.handleDelete(this.props.fighter.id)}>Delete Fighter</button>
-                <button onClick={(e) => this.toggleState()} id={this.props.fighter.id}>Edit Fighter</button>
+                {/* <button onClick={(e) => this.toggleState()} id={this.props.fighter.id}>Edit Fighter</button> */}
                 
                 <div>{returnDiv}</div>
                 
