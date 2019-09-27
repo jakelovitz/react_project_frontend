@@ -31,9 +31,10 @@
 }
 
 .moveDeets {
+    display: grid;
     padding: 2%;
-    align-items: center;
-    justify-items: center;
+    align-content: center;
+    justify-content: center;
     border: 1px solid black;
     grid-column-gap: 1%;
     margin: 3%;
