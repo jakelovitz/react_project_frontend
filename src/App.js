@@ -4,8 +4,7 @@ import SelectionContainer from './selection_page/selection_container'
 import styled from 'styled-components'
 
 const Background = styled.div`
-  background: grey;
-  height: 200%;
+  min-height:100%;
 `
 class App extends React.Component {
 
